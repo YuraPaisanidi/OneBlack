@@ -8,8 +8,6 @@
 	<meta name="description" content="Startup HTML Optimized">
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="img/favicon.ico">
-	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
 	<link rel="stylesheet" href="css/app.min.css?v=1">
 	<script src="js/app.min.js" defer></script>
 
@@ -22,17 +20,30 @@
 		<header class="header header__index">
 			<div class="header__sidebar container">
 				<nav class="header__nav menu">
+					
 					<div class="header__nav--mobile_header">
 						<p class="header__nav--mobile_title">Меню</p>
 						<button class="hamburger hamburger--active" type="button">
 							<span class="hamburger__item"></span>
 						</button>
 					</div>
+
+					<form class="header__nav_search header__nav_search--mobile">
+						<div>
+							<label for="header__search"></label>
+							<input id="header__search" type="search">
+						</div>
+						<button>Поиск</button>
+					</form>
+
 					<ul class="header__nav_menu">
 						<li><a href="#">Главная</a></li>
 						<li><a href="#">Услуги</a></li>
 						<li class="header__nav_submenu">
-							<a href="#">Категории+</a>
+							<a href="#">
+								<p>Категории</p>
+
+							</a>
 							<ul>
 								<li><a href="#">БИЗНЕС</a></li>
 								<li><a href="#">НА ОДНО ИМЯ</a></li>
@@ -52,6 +63,31 @@
 						<li><a href="#">Правила</a></li>
 						
 					</ul>
+
+					<ul class="header__sidebar_menu header__sidebar_menu--mobile">
+						<li>
+							<a href="#">
+								<img src="img/logout.svg" alt="">
+								<p>Вход</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="img/registr.svg" alt="">
+								<p>Регистрация</p>
+							</a>
+							</li>
+						<li class="header__sidebar_submenu">
+							<a href="javascript: void(0)">
+								<p>RUS</p>
+								<span></span>
+							</a>
+							<ul>
+								<li><a href="#">EN</a></li>
+							</ul>
+						</li>
+					</ul>
+
 				</nav>
 			</div>
 
@@ -59,8 +95,8 @@
 				<div class="header__sidebar_block">
 					<form class="header__nav_search">
 						<div>
-							<label for="header__search"></label>
-							<input id="header__search" type="search" placeholder="Введите название товара">
+							<label for="header__search_mobile"></label>
+							<input id="header__search_mobile" type="search" placeholder="Введите название товара">
 						</div>
 						<!-- <button>Search</button> -->
 					</form>
@@ -97,11 +133,16 @@
 							<a>ENG</a>
 						</li>
 					</ul>
-
-					<button class="hamburger" type="button">
-						<span class="hamburger__item"></span>
-					</button>
 				</div>
+
+
+				<a href="/" class="header__logo--mobile">
+					<img src="img/logo.svg" alt="">
+				</a>
+
+				<button class="hamburger" type="button">
+					<span class="hamburger__item"></span>
+				</button>
 
 			</nav>
 
@@ -111,9 +152,15 @@
 			<div class="hero__slider swiper-container">
 	
 				<div class="swiper-wrapper">
-					<div class="hero__item swiper-slide">	<img src="img/main1.jpg" alt=""></div>
-					<div class="hero__item swiper-slide">	<img src="img/main2.jpg" alt=""></div>
-					<div class="hero__item swiper-slide">	<img src="img/main3.jpg" alt=""></div>
+					<div class="hero__item swiper-slide">
+						<img src="img/main1.jpg" alt="">
+					</div>
+					<div class="hero__item swiper-slide">
+						<img src="img/main2.jpg" alt="">
+					</div>
+					<div class="hero__item swiper-slide">
+						<img src="img/main3.jpg" alt="">
+					</div>
 				</div>
 	
 				<div class="hero__pagination swiper-pagination"></div>
@@ -122,7 +169,7 @@
 				<div class="hero__next swiper-button-next"></div>
 			</div>
 		</section>
-	
+
 		<main class="main container">
 
 			<aside class="main__sidebar sidebar">
@@ -322,7 +369,7 @@
 			</section>
 
 		</main>
-	
+
 		<footer class="footer container">
 
 			<nav class="footer__nav">
@@ -330,7 +377,7 @@
 					<li><a href="#">Главная</a></li>
 					<li><a href="#">Услуги</a></li>
 					<li class="header__nav_submenu">
-						<a href="#">Категории+</a>
+						<a href="#">Категории</a>
 						<ul>
 							<li><a href="#">БИЗНЕС</a></li>
 							<li><a href="#">НА ОДНО ИМЯ</a></li>
@@ -340,7 +387,7 @@
 							<li><a href="#">Cryptocurrency exchanges</a></li>
 						</ul>
 					</li>
-					<li class="header__logo">
+					<li class="header__logo footer__logo">
 						<a href="/" class="header__logo_item">
 							<img src="img/logo.svg" alt="">
 						</a>
@@ -356,8 +403,7 @@
 
 	</div>
 
-	<!-- <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
 </body>
+
 </html>

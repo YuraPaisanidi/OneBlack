@@ -252,29 +252,22 @@ document.addEventListener("DOMContentLoaded", function() {
 		};
 		forms('.form');
 
-	// ----------------------SLIDER-hero----------------------
-	var mySwiper = new Swiper('.swiper-container', {
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		effect: 'fade',
-		autoplay: {
-			delay: 5000,
-		},
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		// breakpoints: {
-		// 	320: {
-		// 		slidesPerView: 2,
-		// 		spaceBetween: 20
-		// 	},
-		// }
-	});
+		// ----------------------SLIDER-hero----------------------
+		var mySwiper = new Swiper('.hero__slider', {
+			slidesPerView: 1,
+			loop: true,
+			// effect: 'fade',
+			autoplay: {
+				delay: 3000,
+			},
+			pagination: {
+				el: ".hero__pagination",
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.hero__next',
+				prevEl: '.hero__prev',
+			},
+		});
 });
 	

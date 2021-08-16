@@ -28,11 +28,7 @@
 .wrapper
 	min-height: 100vh
 	width: 100%
-	// max-width: 1750px
-	// padding: 0 15px
-	// margin: 0 auto
 	display: grid
-	// grid-template: minmax(100px, auto) 1fr minmax(100px, auto) / 1fr
 	grid-template-areas: 'header' 'main' 'footer'
 	grid-gap: 50px
 	overflow: hidden
@@ -41,25 +37,11 @@
 	+r(1430)
 		grid-gap: 25px
 
+	+r(480)
+		overflow: visible
+
 	&__index
 		grid-template-areas: 'header' 'slider' 'main' 'footer'
-	// +r(1750)
-	// 	max-width: 1430px
-
-	// +r(1430)
-	// 	max-width: 1200px
-
-	// +r(1200)
-	// 	max-width: 992px
-
-	// +r(992)
-	// 	max-width: 768px
-
-	// +r(767)
-	// 	max-width: 576px
-
-	// +r(576)
-	// 	max-width: 480px
 
 // -----BUTTON-----
 .btn
@@ -94,7 +76,7 @@
 	&--min
 		min-height: 50px
 		min-width: 120px
-	
+
 	&--max
 		max-width: 100%
 		width: 100%
@@ -121,7 +103,7 @@
 		transform: translate(0, -50%)
 		width: 30px
 		height: 3px
-		background-color: $text
+		background-color: $title
 		border-radius: 4px
 		+transition
 		bottom: 0
@@ -132,7 +114,7 @@
 			display: block
 			position: absolute
 			right: 0
-			background-color: $text
+			background-color: $title
 			height: 3px
 			width: 30px
 			+transition
@@ -167,7 +149,6 @@
 				width: 25px
 				transform: rotate(-45deg)
 
-
 .h1
 	font-size: 42px
 	color: $title
@@ -176,54 +157,66 @@
 	+r(1200)
 		font-size: 36px
 
-
 .hero
 	grid-area: slider
-	// position: absolute
+	max-width: 100vw
+	margin-top: -100px
+
+	+r(992)
+		margin-top: 0
 
 	&__slider
 		width: 100%
+		max-height: 700px
+		height: 100%
+
+		+r(992)
+			max-height: 350px
+
+		+r(480)
+			max-height: 300px
+
+	&__item
+		height: 100%
 
 		img
+			object-fit: cover
 			width: 100%
+			height: 100%
 
 	&__pagination
 		position: absolute
-		bottom: 15px
+		bottom: 70px
 		display: flex
 		justify-content: center
 		align-items: center
 		width: 100%
 		z-index: 1
 
+		+r(992)
+			bottom: 30px
+
 		.swiper-pagination-bullet
-			width: 8px
-			height: 8px
+			width: 12px
+			height: 12px
 			border-radius: 50%
-			background-color: #fff
+			background-color: #565656
 			margin: 0 10px
 			+transition
 
+			+r(576)
+				width: 5px
+				height: 5px
+
 			&-active
-				background-image: url(../img/bullet-active.svg)
-				width: 30px
-				height: 30px
-				background-color: transparent
-				background-position: center
-				background-size: 100%
-
-				+r(768)
-					height: 20px
-					width: 20px
-
+				background: #fff
 
 .header
 	grid-area: header
 	display: grid
 	width: 100%
-	// grid-template: 1fr minmax(100px, auto) minmax(60px, auto) / 1fr
 	grid-template-areas: 'header__sidebar' 'header__nav' 'header__label'
-	// max-width: 100%
+	z-index: 10
 
 	+r(1430)
 		grid-template: 1fr minmax(75px, auto) minmax(40px, auto) / 1fr
@@ -233,15 +226,9 @@
 		grid-template: 1fr minmax(40px, auto) / 1fr
 		grid-template-areas: 'header__sidebar' 'header__label'
 
-	&_index
-		position: absolute
-		top: 0
-		z-index: 100
-
 	&__sidebar
 		grid-area: header__sidebar
 		display: grid
-		// grid-template: 1fr / minmax(150px, auto) 1fr
 		grid-gap: 15px
 		align-items: center
 		padding: 25px 0
@@ -250,9 +237,11 @@
 		margin-bottom: 30px
 		z-index: 111
 
+		+r(992)
+			border-bottom: none
+			padding: 0
+
 		&_nav
-			// display: grid
-			// justify-items: end
 			display: flex
 			justify-content: space-between
 			min-height: auto
@@ -272,8 +261,37 @@
 			grid-auto-flow: column
 			grid-gap: 10px
 
-			+r(767)
+			+r(992)
 				display: none
+
+			&--mobile
+				display: none
+
+				+r(992)
+					display: flex
+					flex-direction: column
+					order: 4
+
+				li
+
+					a
+						width: 100%
+						display: flex
+						justify-content: flex-start
+						color: $title
+						border: 1px solid $border
+						border-radius: 4px
+						position: relative
+
+						span
+							width: 15px
+							height: 15px
+							border-top: 3px solid #191918
+							border-left: 3px solid #191918
+							transform: translate(0,-12px) rotate(-135deg)
+							position: absolute
+							right: 20px
+							top: 50%
 
 			a
 				display: flex
@@ -295,10 +313,10 @@
 				&:hover
 					color: #fff
 					background-color: $accent
-			
+
 			img
 				margin-right: 5px
-			
+
 			span, b
 				color: $accent
 				margin: 0 5px
@@ -307,7 +325,6 @@
 			display: flex
 			align-items: center
 			margin-left: 50px
-
 
 			a
 				background: none
@@ -331,17 +348,6 @@
 					&::after
 						transform: translate(0, 2px) rotate(45deg)
 
-			// a
-			// 	&::after
-			// 		content: ""
-			// 		display: block
-			// 		width: 7px
-			// 		height: 7px
-			// 		border-top: 1px solid $text
-			// 		border-left: 1px solid $text
-			// 		transform: translate(0, -2px) rotate(-135deg)
-			// 		margin-left: 7px
-
 			ul
 				position: absolute
 				top: 100%
@@ -354,7 +360,7 @@
 
 					&::after
 						display: none
-			
+
 			li
 				border-top: 1px solid $text
 
@@ -362,6 +368,9 @@
 			display: flex
 			gap: 30px
 			align-items: center
+
+			+r(992)
+				display: none
 
 		&_links
 			display: flex
@@ -373,6 +382,9 @@
 
 	&__logo
 
+		+r(992)
+			display: none !important
+
 		&_item
 			display: block
 			min-width: 280px
@@ -382,10 +394,18 @@
 			width: 100%
 			height: auto
 
+		&--mobile
+			display: none
+
+			+r(992)
+				display: block
+				max-width: 200px
+
+			img
+				object-fit: cover
+				width: 100%
+
 	&__nav
-		// grid-area: header__nav
-		// display: grid
-		// grid-template: 1fr / 1fr minmax(515px, auto)
 		display: flex
 		justify-content: space-between
 		grid-gap: 3px
@@ -412,12 +432,9 @@
 			padding: 25px 50px
 
 		+r(480)
-			padding: 20px
+			padding: 5px
 
 		&_menu
-			// display: grid
-			// grid-auto-flow: column
-			// grid-gap: 3px
 			display: flex
 			justify-content: space-between
 			width: 100%
@@ -449,23 +466,23 @@
 				+r(1430)
 					font-size: 18px
 					padding: 0 15px
-				
+
 				+r(992)
 					font-size: 16px
 					line-height: 1.1
 					padding: 20px
 					text-align: left
 					justify-content: flex-start
+					background: $accent
+					border: 1px solid $border
+					border-radius: 4px
+					color: $title
 
 				&:hover
+					border-color: $title
 					color: $title
 
 		&_search
-			// display: grid
-			// grid-template: 1fr / 2fr minmax(auto, 120px)
-			// grid-auto-flow: column
-			// padding: 25px 30px
-			// background: $accent
 
 			+r(1430)
 				grid-template: 1fr / 2fr minmax(auto, 90px)
@@ -517,24 +534,32 @@
 					color: $text
 					box-shadow: 0px 0px 20px #DE0300
 
+			&--mobile
+				display: none
+
+				+r(992)
+					display: flex
+					flex-direction: column
+					padding: 0
+
+				input
+					background: $accent
+					border: 1px solid $border
+
+				button
+					background: $accent
+					min-height: 50px
+					border: 1px solid $border
+					border-radius: 4px
+					text-transform: uppercase
+					color: $title
+
 		&_submenu
 			@extend .header__sidebar_submenu
 
 			&:hover
 				ul a::after
 					transform: translate(0, 5px) rotate(45deg)
-
-			a
-
-				// &::after
-				// 	width: 11px
-				// 	height: 11px
-				// 	transform: translate(0, -2px) rotate(-135deg)
-				// 	margin-left: 10px
-
-					+r(1430)
-						width: 7px
-						height: 7px
 
 			ul
 				height: auto
@@ -564,6 +589,7 @@
 				font-size: 36px
 				line-height: 1
 				font-weight: 700
+				color: $title
 
 			&_sidebar
 				display: none
@@ -575,7 +601,7 @@
 					gap: 10px
 					width: 100%
 					order: 2
-				
+
 				a
 					justify-content: flex-start
 
@@ -589,24 +615,20 @@
 		text-align: right
 		font-size: 18px
 		color: #000
-		
+
 		+r(767)
 			font-size: 16px
 			padding: 15px 20px
 
-
 .main
 	grid-area: main
 	display: grid
-	// grid-template: minmax(auto, 320px) 1fr / 1fr
 	grid-template-columns: 1fr 340px
 	grid-template-areas: 'main__sidebar' 'main__content'
 	grid-gap: 0 50px
 	align-items: flex-start
-	// max-width: 100%
 
 	+r(1430)
-		grid-template: 1fr / minmax(auto, 280px) 1fr
 		grid-template-areas: 'main__sidebar' 'main__content'
 		grid-gap: 0 25px
 
@@ -646,7 +668,6 @@
 		+r(992)
 			grid-row: 1
 			grid-column: 1
-
 
 .sidebar
 	&__block
@@ -731,10 +752,9 @@
 			color: $title
 			line-height: 1.2
 			font-size: 24px
-		
+
 		&_btn
 			min-width: 300px
-
 
 .content
 	&__bunner
@@ -784,12 +804,9 @@
 				font-size: 36px
 
 	&__wrap
-		// background-color: $bg
-		// padding: 30px
 
 		+r(767)
 			overflow: auto
-			padding: 15px
 
 	&__header
 		display: grid
@@ -811,7 +828,7 @@
 
 		+r(992)
 			font-size: 16px
-		
+
 		+r(767)
 			min-width: 750px
 
@@ -930,7 +947,6 @@
 				font-weight: 400
 				color: $lightText
 
-
 .services
 	&__header
 		display: flex
@@ -973,7 +989,6 @@
 		&:last-child
 			margin-bottom: 0
 
-
 .article
 	display: flex
 	justify-content: space-between
@@ -1007,7 +1022,7 @@
 			border: 1px solid $border
 			background: $accent
 			font-weight: 400
-			text-transform: 
+			text-transform:
 			color: $lightText
 
 			&:hover
@@ -1084,10 +1099,12 @@
 		color: $title
 		font-weight: 400
 
-
 .contacts
 	padding: 30px
 	border: 1px solid $border
+
+	+r(480)
+		padding: 15px
 
 	&__map
 		position: relative
@@ -1132,20 +1149,21 @@
 			margin-right: 10px
 			max-width: 30px
 
-
 .profile
 
 	&__logo
 		display: none
 
 		+r(992)
-			display: block
+			display: block !important
+			max-width: 150px
 
 	&__header
 		grid-template-rows: 1fr
 
-		+r(1200)
-			grid-template: 1fr / 1fr 1fr
+		+r(992)
+			display: flex
+			padding-top: 15px
 			align-items: center
 
 		+r(480)
@@ -1187,6 +1205,10 @@
 				min-height: 60px
 				font-size: 16px
 				padding: 15px 20px
+				color: $title
+
+			+r(480)
+				min-width: 250px
 
 			img
 				margin-right: 12px
@@ -1261,6 +1283,9 @@
 					text-align: left
 					justify-content: flex-start
 					min-height: 60px
+					color: $title
+					border: 1px solid $border
+					background: $accent
 
 			&--right
 				a
@@ -1268,7 +1293,7 @@
 					background: $accent
 
 		&_submenu
-			
+
 			a
 				min-width: 250px
 
@@ -1277,20 +1302,23 @@
 
 	&__main
 		grid-template-columns: 340px 1fr
-		// +r(576)
-		// 	margin-left: -15px
-		// 	margin-right: -15px
-		// 	min-width: 100%
+
+		+r(992)
+			grid-template-columns: 1fr
 
 	&__content
 		grid-column: 2
 		grid-gap: 20px
 
-		+r(1200)
-			padding: 30px
+		+r(992)
+			padding: 0
+			grid-column: 1
 
 		&_wrap
 			overflow: auto
+
+			.accordion__content
+				overflow: inherit
 
 		&_sale
 			display: flex
@@ -1310,7 +1338,7 @@
 
 			a
 				color: $title
-		
+
 		&_label
 			display: flex
 			flex-wrap: wrap
@@ -1344,8 +1372,6 @@
 				padding: 0px 20px
 
 	&__table
-		// overflow: inherit
-		// max-height: fit-content
 		min-width: 900px
 		width: 100%
 
@@ -1373,8 +1399,8 @@
 			grid-gap: 5px
 
 		&--6
-				grid-template-columns: repeat(6, 1fr)
-				grid-gap: 5px
+			grid-template-columns: repeat(6, 1fr)
+			grid-gap: 5px
 
 		&--5
 			grid-template-columns: repeat(5, 1fr)
@@ -1452,9 +1478,6 @@
 .footer
 	grid-area: footer
 	border-top: 1px solid $border
-	// display: grid
-	// grid-template: 1fr / minmax(auto, 150px) 1fr 1fr 1fr minmax(auto, 150px)
-	// grid-template-areas: 'footer__logo' 'empty' 'footer__nav' 'empty' 'footer__sidebar'
 	grid-gap: 15px
 	align-items: center
 	padding: 30px 15px
@@ -1464,15 +1487,19 @@
 		padding: 25px
 
 	+r(992)
-		grid-template: 1fr / minmax(auto, 150px) 1fr 1fr
-		grid-template-areas: 'footer__logo' 'footer__nav' 'footer__sidebar'
 		align-items: flex-end
+		padding: 15px
 
 	+r(767)
 		grid-template-columns: auto
 
 	&__logo
-		max-width: 150px
+
+		+r(992)
+			display: block !important
+
+		img
+			max-width: 150px
 
 	&__nav
 		grid-area: footer__nav
@@ -1480,9 +1507,6 @@
 		grid-row: 1
 
 		+r(992)
-			grid-column: 5
-
-		+r(767)
 			grid-column: 1
 			grid-row: 2
 			align-items: flex-start
@@ -1490,16 +1514,20 @@
 		&_menu
 			display: grid
 			grid-auto-flow: column
-			grid-gap: 85px
 			text-align: center
 
-			+r(1430)
-				grid-gap: 25px
-
-			+r(767)
+			+r(992)
 				grid-auto-flow: row
 				grid-gap: 10px
 				text-align: left
+				align-items: center
+
+			a
+				background: none
+				border: none
+
+				+r(992)
+					padding: 0
 
 	&__sidebar
 		&_nav
@@ -1529,11 +1557,10 @@
 			ul
 				top: auto
 				bottom: 100%
-			
+
 			li
 				border-top: 1px solid transparent
 				border-bottom: 1px solid #fff
-
 
 // -----MODAL-----
 .modal
@@ -1660,7 +1687,6 @@
 		p
 			color: $title
 
-
 .form
 	position: relative
 	border: 1px solid $border
@@ -1701,7 +1727,7 @@
 		align-items: center
 		flex-wrap: wrap
 		margin-top: 20px
-		
+
 		a
 			color: $lightText
 			&:hover
@@ -1731,7 +1757,7 @@
 		&._error
 			box-shadow: 0 0 4px 0 rgba(red, 1)
 			border-color: red
-	
+
 	&__textarea
 		width: 100%
 		resize: none
@@ -1872,7 +1898,6 @@
 			text-transform: uppercase
 			font-weight: 400
 			border: 1px solid $border
-
 
 .accordion
 	margin-bottom: 10px
