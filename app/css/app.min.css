@@ -1465,6 +1465,11 @@ textarea {
     font-size: 14px
   }
 }
+.header__nav_submenu--footer ul {
+  bottom: 100%;
+  top: auto;
+  width: 220px!important
+}
 .header__nav--mobile_header {
   display: none
 }
@@ -1699,7 +1704,7 @@ textarea {
   background: -o-linear-gradient(335.51deg,rgba(255,255,255,.33) -21.49%,rgba(255,255,255,0) 111.75%);
   background: linear-gradient(114.49deg,rgba(255,255,255,.33) -21.49%,rgba(255,255,255,0) 111.75%);
   border: 1px solid #727272;
-  padding: 10px 30px;
+  padding: 10px 20px;
   font-size: 18px;
   line-height: 1;
   color: #f3f5f8;
@@ -1728,7 +1733,6 @@ textarea {
   align-items: center;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 50px;
   height: 50px;
   margin-right: 15px
 }
@@ -1737,10 +1741,6 @@ textarea {
     width: 30px;
     height: 30px
   }
-}
-.sidebar__header_icon img {
-  max-width: 70%;
-  max-height: 70%
 }
 .sidebar__item {
   display: block;
@@ -2387,7 +2387,8 @@ textarea {
   flex-shrink: 1
 }
 .profile__menu_link--active {
-  border: 1px solid #f3f5f8
+  border: 1px solid #f3f5f8;
+  color: #f3f5f8
 }
 .profile__menu--mobile {
   display: none
@@ -2521,7 +2522,7 @@ textarea {
 .profile__content {
   -ms-grid-column: 2;
   grid-column: 2;
-  grid-gap: 20px
+  grid-gap: 0
 }
 @media only screen and (max-width:992px) {
   .profile__content {
@@ -2607,6 +2608,9 @@ textarea {
   .profile__content_header {
     padding: 0 20px
   }
+}
+.profile__content .h1 {
+  margin-bottom: 20px
 }
 .profile__table {
   min-width: 900px;
@@ -2728,7 +2732,8 @@ textarea {
   text-transform: uppercase;
   font-weight: 400;
   max-width: 165px;
-  font-size: 16px
+  font-size: 16px;
+  margin-bottom: 20px
 }
 .profile__ticket_label {
   background: 0 0;
@@ -3366,4 +3371,7 @@ textarea {
 }
 .accordion--active .accordion__content {
   opacity: 1
+}
+.active {
+  color: #f3f5f8
 }

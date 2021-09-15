@@ -575,6 +575,13 @@
 						min-height: 50px
 						font-size: 14px
 
+			&--footer
+				ul
+					bottom: 100%
+					top: auto
+					width: 220px !important
+
+
 		&--mobile
 
 			&_header
@@ -687,7 +694,7 @@
 		align-items: center
 		background: $accent
 		border: 1px solid $border
-		padding: 10px 30px
+		padding: 10px 20px
 		font-size: 18px
 		line-height: 1
 		color: $title
@@ -705,7 +712,7 @@
 			justify-content: center
 			align-items: center
 			flex-shrink: 0
-			width: 50px
+			// width: 50px
 			height: 50px
 			margin-right: 15px
 
@@ -713,9 +720,9 @@
 				width: 30px
 				height: 30px
 
-			img
-				max-width: 70%
-				max-height: 70%
+			// img
+			// 	max-width: 70%
+			// 	max-height: 70%
 
 	&__item
 		display: block
@@ -1218,6 +1225,7 @@
 
 			&--active
 				border: 1px solid $title
+				color: $title
 
 		&--mobile
 			display: none
@@ -1308,7 +1316,7 @@
 
 	&__content
 		grid-column: 2
-		grid-gap: 20px
+		grid-gap: 0
 
 		+r(992)
 			padding: 0
@@ -1370,6 +1378,9 @@
 
 			+r(576)
 				padding: 0px 20px
+
+		.h1
+			margin-bottom: 20px
 
 	&__table
 		min-width: 900px
@@ -1470,6 +1481,7 @@
 			font-weight: 400
 			max-width: 165px
 			font-size: 16px
+			margin-bottom: 20px
 
 		&_label
 			background: none
@@ -1954,3 +1966,6 @@
 
 			&__content
 				opacity: 1
+
+.active
+	color: $title
